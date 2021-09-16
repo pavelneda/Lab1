@@ -1,16 +1,15 @@
-from sys import argv
-name,func,number1,number2=argv
+import sys
+import operator
 
-def add(x,y):
-    return x+y
-    
-def subtract(x,y):
-    return x-y
-
-def multiply(x,y):
-    return x*y
-
-def divide(x,y):
-    return x/y
-    
-print(eval(func+'('+number1+','+number2+')'))
+ops={"add": operator.add,"mul":operator.mul,"sub":operator.sub,"div":operator.truediv}
+def guard(func,numbers):
+    try:
+        return ops[func](int(numbers[0]),int(numbers[1]))
+    except:
+        return None
+try:
+    func=sys.argv[1]
+    numbers=sys.argv[2:]
+    print(guard(func,numbers))
+except:
+    print("Enter parameters")

@@ -1,4 +1,10 @@
-from sys import argv
-name,number1,operator,number2=argv
+import sys
+StrNumbers="".join(sys.argv[1:])
+def count(numbers):
+    try:
+        return eval(numbers)
+    except:
+        return None
+print(count(StrNumbers))
 
-print(eval(number1+operator+number2))
+

@@ -1,18 +1,19 @@
-st=input()
-lst=list(st)
-lst.append("\0")
+userIn=input()
+lst=list(userIn)
+lst.append(" ")
 
-def filtr(l,i=0):
-    if l[i] == "\0" :
-        print("(True,",str(eval(st))+")")
+def process(lst,i=0):
+    if i+1 == len(lst) :
+        return (True,eval(userIn))
     else:
+        if lst[i].isdigit() or ((lst[i] == "+" or lst[i] == "-")  and lst[i+1].isdigit()):
             i=i+1
-            filtr(l,i)   
+            return process(lst,i)   
         else:
-            print("(False, None)")
+            return (False, None)
         
 if lst[0].isdigit():
-    filtr(lst)
+    print(process(lst))
 else:
     print("(False, None)") 
 
