@@ -12,7 +12,11 @@ def maxgold(W, wgt):
                 tab[i][j] = tab[i-1][j] 
    
     return tab[n][W] 
-wgt = [int(i) for i in input().split()]
 W = 20
+try:
+    wgt = [int(i) for i in input().split()]
+    print(maxgold(W, wgt))
+except:
+    print(None)
+
  
-print(maxgold(W, wgt))
